@@ -35,6 +35,6 @@ public class AuthController {
     public ResponseEntity<Object> login(@Valid @RequestBody AuthenticationRequestDto authRequest) {
         String jwt = authService.authenticateUser(authRequest.getEmail(), authRequest.getPassword());
 
-        return ResponseEntity.ok(jwt);
+        return ResponseEntity.ok().header(HttpHeaders.AUTHORIZATION, jwt).build();
     }
 }
