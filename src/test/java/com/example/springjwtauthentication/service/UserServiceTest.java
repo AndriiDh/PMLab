@@ -37,6 +37,8 @@ class UserServiceTest {
                 .email(email)
                 .build();
 
+        //
+
         // when
         when(userRepository.findByEmail(email)).thenReturn(Optional.of(user));
 

@@ -34,6 +34,7 @@ public class SecurityConfig {
         http.csrf().disable();
 
         http.authorizeHttpRequests()
+                .antMatchers("/ui").permitAll()
                 .antMatchers("/api/auth/**").permitAll()
                 .antMatchers("/api/users").hasAuthority("ADMIN")
                 .anyRequest().authenticated();
